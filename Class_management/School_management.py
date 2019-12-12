@@ -51,6 +51,8 @@ while(option != 4):
                         print("{:<10} ===> {:>5}".format(k, v))
                         mark_sum_list.append(v)
                     avg = (sum(mark_sum_list)//len(mark_sum_list))
+                    print("\nTotal of {} is {} \n".format(
+                        std_name, sum(mark_sum_list)))
                     mark_sum_list = []
                     print("Average of {} is {} \n".format(std_name, avg))
                 else:
@@ -61,6 +63,10 @@ while(option != 4):
                 std_loop = "no"
 
     if option == 2:
-        sum_list = []
-        d = {class_k: class_v for class_k, class_v in school.items()}
-        print(d.values())
+        s = {nk: sum(nv.values()) for ck, cv in school.items()
+             for nk, nv in cv.items()}
+        s2 = {k: v for k, v in sorted(
+            s.items(), key=lambda x: x[1], reverse=True)}
+        print("School topper is : {} \n".format(
+            max(s2.items(), key=lambda x: x[1])))
+
