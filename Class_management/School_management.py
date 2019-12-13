@@ -63,10 +63,7 @@ while(option != 4):
                 std_loop = "no"
 
     if option == 2:
-        s = {nk: sum(nv.values()) for ck, cv in school.items()
-             for nk, nv in cv.items()}
-        s2 = {k: v for k, v in sorted(
-            s.items(), key=lambda x: x[1], reverse=True)}
-        print("School topper is : {} \n".format(
-            max(s2.items(), key=lambda x: x[1])))
+        s = {nk: sum(nv.values()) for ck, cv in school.items() for nk, nv in cv.items()}
+        s2 = {k: v for k, v in sorted(s.items(), key=lambda x: x[1], reverse=True)}
+        print("School topper is : {} \n".format(max(s2.items(), key=lambda x: x[1])))
 
